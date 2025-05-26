@@ -38,7 +38,7 @@ destino = destino.lower()
 
 if origem == "c" and destino == "f":
     resultado = (temperatura * 9/5) + 32
-    print(f"A temperatura convertida é de: {resultado:.2f}°F") # Corrigido: usando f-string para formatar
+    print(f"A temperatura convertida é de: {resultado:.2f}°F")
 
 elif origem == "c" and destino == "k":
     resultado = (temperatura + 273.15)
@@ -60,11 +60,18 @@ elif origem == "k" and destino == "f":
     resultado = (temperatura - 273.15) * 9/5 + 32
     print(f"A temperatura convertida é de: {resultado:.2f}°F")
 
-elif origem == destino: # Adicionado: caso a unidade de origem seja igual à de destino
-    print(f"A temperatura já está na unidade desejada: {temperatura:.2f}{origem.upper()}") # Mostra a unidade original
+elif origem == destino:
+    print(f"A temperatura já foi selecionada: ") # Mostra a unidade original
 
 else:
     print("Ocorreu um erro, verifique seus dados ou unidades!")
 
 
-input("\nfinalizar?") #para travar a tela de prompt
+# 4- Verificador de Ano Bissexto
+ano = int(input("\nDigite o ano para verificar se é bissexto: "))
+if (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0): # 'if' agora está em uma NOVA LINHA
+    print(f"O ano {ano} é bissexto.")
+else:
+    print(f"O ano {ano} não é bissexto.")
+
+    input("\nfinalizar?") #para travar a tela de prompt
