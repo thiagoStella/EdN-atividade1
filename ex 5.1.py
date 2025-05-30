@@ -5,14 +5,20 @@ PROCENTAGEM_FIXA = 0.13
 def gorjetinha(PROCENTAGEM_FIXA, valor_conta):
     gorjeta = valor_conta * PROCENTAGEM_FIXA
     return gorjeta
+try:
+    valor_conta = float(input("Informe o valor da conta para calcular o gorjeta: "))
 
-valor_conta = float(input("Informe o valor da conta para calcular o gorjeta: "))
-valor_gorjeta = gorjetinha(PROCENTAGEM_FIXA, valor_conta)
+    valor_gorjeta = gorjetinha(PROCENTAGEM_FIXA, valor_conta)
 
-print("====== BAR DO TIÃO ======")
-print(f"\nServices: R$ {valor_conta}")
-print(f"\nTax:      {PROCENTAGEM_FIXA * 100}%")
-print(f"\nTip:      R$ {valor_gorjeta}")
-print(f"\nTotal:    R$ {valor_conta + valor_gorjeta}")
-
-input("\n\nVai a saideira?")
+    print("====== BAR DO TIÃO ======")
+    print(f"\nServices: R$ {valor_conta:.2f}")
+    print(f"\nTax:      {PROCENTAGEM_FIXA * 100:.0f}%")
+    print(f"\nTip:      R$ {valor_gorjeta:.2f}")
+    print(f"\nTotal:    R$ {valor_conta + valor_gorjeta:.2f}")
+    print(f"\n=========================")
+except ValueError:
+    print("Parece que o senhor andou bebendo tambem, o sistema so aceita números como entreda, lembra?")
+except Exception as e:
+    print(f"Hove um erro inesperado {e}")
+finally:
+    input("\n\nVai a saideira?")
